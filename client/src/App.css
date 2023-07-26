@@ -1,16 +1,84 @@
-div {
+:root{
+  background-color: #edf6f9;
+  font-family: sans-serif;
+}
+
+.main {
+  margin-top: 10%;
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin: 10%;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.main div {
+  background-color: #83c5be;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 375px;
   justify-content: center;
   align-items: center;
+  border: #83c5be solid 1px;
+  border-radius: 10px;
 }
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
 }
-input, button {
-  margin: 10px 5px;
+input{
+  width: 95%;
+  height: 1.75rem;
+  margin: 1vh 2.5%;
+  border: #83c5be solid 1px;
+  border-radius: 10px;
+}
+button {
+  background-color: #e29578;
+  margin-top: 1vh;
+  width: 30%;
+  height: 2rem;
+  border: #83c5be solid 1px;
+  border-radius: 10px;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 1.25rem;
+}
+
+@media only screen and (max-width: 720px) {
+  .main div{
+    width: 450px;
+    height: 300px;
+  }
+  h1{
+    font-size: 2.5rem;
+  }
+  h2{
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .main div{
+    width: 300px;
+    height: 200px;
+  }
+  h1{
+    font-size: 2rem;
+  }
+  h2{
+    font-size: .75rem;
+  }
+  input {
+    height: 1.25rem;
+  }
+  button {
+    height: 1.5rem;
+  }
 }

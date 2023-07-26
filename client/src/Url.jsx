@@ -17,11 +17,14 @@ export default function Url() {
       setValid(1);
     }
     else {
-      setValid(2);
+      if(response.status===406) setValid(3);
+      else setValid(2);
     }
   }
   return (
+    <div className="main">
     <div>
+      <h1>Link-Shortener</h1>
       <form onSubmit={shortenUrl}>
         <input
           type="text"
@@ -29,29 +32,35 @@ export default function Url() {
           required={true}
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-        />
+          />
         <input
           type="text"
           placeholder="Desired Url"
           required={true}
           value={shortUrl}
           onChange={(e) => setShortUrl(e.target.value)}
-        />
+          />
         <button>Shorten</button>
       </form>
       {valid==1 && (
         <h2>
           The Shortened Link is{' '}
           <a
-            href={`http://localhost:4000/${shortUrl}`}
-          >{`http://localhost:4000/${shortUrl}`}</a>
+            href={`http://localhost:5173/${shortUrl}`}
+            >{`http://localhost:5173/${shortUrl}`}</a>
         </h2>
       )}
       {valid==2 && (
-        <h2>
+        <h2 style={{color:"#d00000"}}>
           There was an Error. Please Try Again
         </h2>
       )}
+      {valid==3 && (
+        <h2 style={{color:"#d00000"}}>
+          Enter a Valid URL please
+        </h2>
+      )}
     </div>
+  </div>
   );
 }

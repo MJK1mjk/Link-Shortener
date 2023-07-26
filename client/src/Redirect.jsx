@@ -6,8 +6,8 @@ export default function Url() {
     useEffect(() => {
         fetch(`http://localhost:4000/${id}`)
         .then(response=>{
+            console.log("abc")
             response.json().then(info=>{
-                console.log(info)
                 window.location.replace(info.url)
             })
         });

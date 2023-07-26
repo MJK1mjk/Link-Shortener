@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors');
+const validUrl = require('valid-url');
 
 const app = express();
 app.use(cors());
@@ -23,6 +24,7 @@ mongoose
   
   app.post('/s', async (req,res) => {
     const {url,shortUrl}= req.body;
+    if(validUrl.isUri(url)){
     try{
       const urlDoc = await URL.create({
         url,
@@ -32,6 +34,10 @@ mongoose
     } catch(e) {
       console.log(e);
       res.status(400).send();
+    }
+  }
+    else{
+      res.status(406).send();
     }
   });
 
